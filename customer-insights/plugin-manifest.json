@@ -1,0 +1,37 @@
+{
+  "locale": [
+    "en"
+  ],
+  "service": "DESK",
+  "storage": false,
+  "whiteListedDomains": [
+    "https://desk.zoho.com"
+  ],
+  "modules": {
+    "widgets": [
+      {
+        "location": "desk.ticket.detail.lefttab",
+        "url": "/app/widget.html",
+        "name": "Customer Insights",
+        "logo": "/app/img/insights.png"
+      }
+    ]
+  },
+  "type": "org",
+  "connectors": [
+    {
+      "connectionLinkName": "<Connection Link Name>",
+      "connectionName": "<Connection Name>",
+      "serviceName": "zlabs_integration",
+      "userAccess": true,
+      "isUserDefinedService": false,
+      "sharedBy": "<sharedBy>",
+      "scope": [
+        "Desk.contacts.READ",
+        "Desk.search.READ"
+      ]
+    }
+  ],
+  "config": [],
+  "moduleSupport": false
+}

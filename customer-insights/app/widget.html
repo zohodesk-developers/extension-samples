@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Zoho Desk - Apps</title>
+	<script src="https://js.zohostatic.com/support/developer_sdk/v1/js/ZohoDeskClientSDK.min.js"></script>
+	<link rel="stylesheet" href="./css/proximanovafont.css" type="text/css">
+	<link rel="stylesheet" href="./css/extension.css" type="text/css">
+	<link rel="stylesheet" href="./css/stencil.css" type="text/css">
+</head>
+
+<body>
+	<div class="cntActCon" id="loading">
+		<div class="cntActStnlSubDv">
+			<div>
+				<div class="cntActprfStn prfStn insgtStncl disinVmid"></div>
+				<div class="disinVmid">
+					<div class="cntActgrphDataStn insgtStncl"></div>
+					<div class="cntActvalueStn insgtStncl"></div>
+				</div>
+			</div>
+			<div class="cntActMnStnl">
+				<div class="disinVmid cntActCirclSvg">
+					<div class="crcleStn"></div>
+				</div>
+				<div class="disinVmid">
+					<div class="disFlexalgnCntr">
+						<span class="cntActgrphBoxStn insgtStncl"></span>
+					</div>
+					<div class="cntActvalueStn insgtStncl"></div>
+				</div>
+				<div class="cntActStnlLstDv">
+					<div class="disFlexalgnCntr cntActSteLst">
+						<span class="cntActgrphCrclStn insgtStncl"></span>
+						<span class="cntActgrphStn insgtStncl"></span>
+						<span class="cntActgrphDtStn insgtStncl"></span>
+					</div>
+					<div class="disFlexalgnCntr cntActSteLst">
+						<span class="cntActgrphCrclStn insgtStncl"></span>
+						<span class="cntActgrphStn insgtStncl"></span>
+						<span class="cntActgrphDtStn insgtStncl"></span>
+					</div>
+					<div class="disFlexalgnCntr">
+						<span class="cntActgrphCrclStn insgtStncl"></span>
+						<span class="cntActgrphStn insgtStncl"></span>
+						<span class="cntActgrphDtStn insgtStncl"></span>
+					</div>
+
+					<div class="cntActStnlTmeDv">
+						<div class="disinVmid">
+							<div class="cntActgrphDataStn insgtStncl"></div>
+							<div class="cntActgrphDataStnLen insgtStncl"></div>
+							<div class="cntActvalueStn insgtStncl"></div>
+						</div>
+
+						<div class="disinVmid">
+							<div class="cntActgrphDataStn insgtStncl"></div>
+							<div class="cntActgrphDataStnLen insgtStncl"></div>
+							<div class="cntActvalueStn insgtStncl"></div>
+						</div>
+
+						<div class="disinVmid">
+							<div class="cntActgrphDataStn insgtStncl"></div>
+							<div class="cntActgrphDataStnLen insgtStncl"></div>
+							<div class="cntActvalueStn insgtStncl"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cntActMnDv hide" id="custContainer">
+		<div class="cntActLftSubDv">
+			<div class="cntActPrfInfo">
+				<div id="initalId" class="initalCls"></div>
+				<img class="cntActImg hide" id="photo_url" onerror="document.getElementById('photo_url').classList.add('hide');
+				document.getElementById('initalId').classList.remove('hide');">
+				<div>
+					<div class="cntAcMntNme" id="contactName"></div>
+					<div class="cntActScNme" id="accountName"></div>
+				</div>
+			</div>
+
+			<div class="cntActrtngDv">
+				<div class="cntActRnd">
+					<div style="height: 115px; width:115px;" id="chartContainer">
+					</div>
+					<div>
+						<div class="cntActAlTcNum" id="total_Count">0</div>
+						<div class="cntActAlTcTxt">Tickets</div>
+					</div>
+
+				</div>
+
+				<div class="cntActClrCde">
+					<div>
+						<div class="cntActDot cntActGrey" id="cntActDot0" onclick="toggleLegend(0)">
+							<span class="cntActRspnsNum " id="open_count">0</span>
+						</div>
+						<div class="cntActDot cntActGrey hide" id="cntActDot2" onclick="toggleLegend(2)">
+							<span class="cntActRspnsNum " id="onhold_count">0</span>
+						</div>
+						<div class="cntActDot cntActGrey cntActLin" id="cntActDot1" onclick="toggleLegend(1)">
+							<span class="cntActRspnsNum " id="closed_count">0</span>
+						</div>
+					</div>
+					<div class="cntActStsPrnt">
+						<div class="cntActStsTxt cntActGrey pointer" id="cntActLabel0" onclick="toggleLegend(0)">Open
+							<span class="cntActOvrDueTxt" id="overdue_count">(0 Overdue)</span>
+						</div>
+						<div class="cntActStsTxt cntActGrey pointer hide" id="cntActLabel2" onclick="toggleLegend(2)">OnHold</div>
+						<div class="cntActStsTxt cntActGrey pointer" id="cntActLabel1" onclick="toggleLegend(1)">Closed</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="cntActRspWlDv">
+				<div class="cntActRspnWhlN">
+					<div class="cntActRspnTxt">Average First Response Time</div>
+					<div class="cntActRtngBar">
+						<div class="cntAvgProgress" id="firstResProgress"></div>
+					</div>
+					<div class="cntActRspnNum" id="firstRespTime"></div>
+					<div class="cntActTlTipPrnt">
+						<div class="cntActTlTip">Last 6 months stats</div>
+					</div>
+				</div>
+
+				<div class="cntActRspnWhlN">
+					<div class="cntActRspnTxt">Average Response Time</div>
+					<div class="cntActRtngBar">
+						<div class="cntAvgProgress" id="respProgress"></div>
+					</div>
+					<div class="cntActRspnNum" id="respTime"></div>
+					<div class="cntActTlTipPrnt">
+						<div class="cntActTlTip">Last 6 months stats</div>
+					</div>
+				</div>
+
+				<div class="cntActRspnWhlN">
+					<div class="cntActRspnTxt">Average Resolution Time</div>
+					<div class="cntActRtngBar">
+						<div class="cntAvgProgress" id="resolutionProgress"></div>
+					</div>
+					<div class="cntActRspnNum" id="resolutionTime"></div>
+					<div class="cntActTlTipPrnt">
+						<div class="cntActTlTip">Last 6 months stats</div>
+					</div>
+				</div>
+
+				<div class="cntActAvngHrs">
+					<div class="cntActDtdSub">0
+						<img class="cntActDtdLftArw" src="img/fillArrow.png" />
+						<div class="cntActDtdLine"></div>
+						<img class="cntActDtdArw" src="img/fillArrow.png" />
+						<span id="maxRange">10</span>
+					</div>
+					<div class="cntActDtdTxt">Average Handling Time</div>
+					<div class="cntActTlTipPrnt">
+						<div class="cntActTlTip">Last 6 months stats</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- <div class="cntActDotLne"></div> -->
+			<div class="cntActHpnsHdr">Happiness Ratings
+				<div class="cntActBldTxt" id="totalHappiness">0%</div>
+			</div>
+			<div class="cntActWhlHpnDv">
+				<div>
+					<img class="cntActHpImg" src="./img/good.png" alt="Good">
+					<div class="cntActRtngNum" id="goodPercent">
+					</div>
+				</div>
+
+				<div>
+					<img class="cntActHpImg" src="./img/ok.png" alt="Okay">
+					<div class="cntActRtngNum" id="okPercent"></div>
+				</div>
+
+				<div>
+					<img class="cntActHpImg" src="./img/bad.png" alt="Bad">
+					<div class="cntActRtngNum" id="badPercent">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="errorHead hide" id="errorContainer">
+		<img src="./img/error.png" height="150" width="250">
+		<div class="errorMsg" id="errorMsg"></div>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="./js/external/d3.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./js/external/zc.min.js"></script>
+	<script src="./js/extension.js" charset="utf-8"></script>
+	<script src="./js/chart.js" charset="utf-8"></script>
+</body>
+
+</html>
