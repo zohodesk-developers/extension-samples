@@ -1,0 +1,22 @@
+{
+  "locale": [
+    "en"
+  ],
+  "service": "DESK",
+  "storage": false,
+  "whiteListedDomains": [],
+  "modules": {
+    "widgets": [
+      {
+        "location": "desk.topband",
+        "url": "<published creator form/page URL>",
+        "name": "<Name of the widget>",
+        "logo": "/app/img/logo.png"
+      }
+    ]
+  },
+  "type": "org",
+  "connectors": [],
+  "config": [],
+  "moduleSupport": false
+}
