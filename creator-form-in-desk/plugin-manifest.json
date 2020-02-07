@@ -9,7 +9,7 @@
     "widgets": [
       {
         "location": "desk.topband",
-        "url": "<published creator form/page URL>",
+        "url": "<published creator form or page URL>",
         "name": "<Name of the widget>",
         "logo": "/app/img/logo.png"
       }
