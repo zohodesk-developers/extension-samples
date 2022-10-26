@@ -1,0 +1,54 @@
+{
+	"locale": [
+		"en"
+	],
+	"service": "DESK",
+	"storage": false,
+	"type": "personal",
+	"whiteListedDomains": [
+		"https://desk.zoho.com", 
+		"https://desk.zoho.eu", 
+		"https://desk.zoho.in",
+		"https://www.googleapis.com"
+	],
+	"modules": {
+		"widgets": [
+			{
+				"location": "desk.ticket.detail.rightpanel",
+				"url": "/app/widget.html",
+				"name": "Desk Extension",
+				"logo": "/app/img/logo.png",
+				"icon": "/app/img/icon.png"
+			},
+			{
+				"location": "desk.topband",
+				"name":"Desk Extension with domain",
+				"icon":"/app/img/icon.png",
+				"logo":"/app/img/logo.png",
+				"url":"https://www.google.com/search?q=zoho+desk",
+				"other_dc_urls":{
+				  "IN": "https://www.google.co.in/search?q=zoho+desk",
+				  "US": "https://www.google.co.uk/search?q=zoho+desk"
+				}
+			}
+		]
+	},
+	"cspDomains": {
+		"connect-src": []
+	},
+	"zohoAuthorisation": {
+		"type": "connectors",
+		"connectionLinkName": "deskconnection",
+		"connectionName": "DeskConnection",
+		"serviceName": "zoho_desk",
+		"userAccess": true,
+		"isUserDefinedService": false,
+		"sharedBy": "*******",
+		"scope": [
+		"Desk.tickets.READ"
+		]
+	},
+	"connectors": [],
+	"config": [],
+	"moduleSupport": false
+}
