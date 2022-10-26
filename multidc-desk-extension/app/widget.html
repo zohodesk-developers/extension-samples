@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Zoho Desk - Apps</title>
+</head>
+
+<body>
+
+	<h2>This is a sample App built using ZET CLI.</h2>
+
+	<script src="https://js.zohostatic.com/support/developer_sdk/v1/js/ZohoDeskClientSDK.min.js"></script>
+	<script>
+	window.onload = function () {
+	 ZOHODESK.extension.onload().then(function (App) {
+		const DC_TYPE = App.meta.dcType;
+		ZOHODESK.get('portal.id').then(resp => {
+			 const orgId = resp['portal.id']
+			const domains = {
+				"EU": "eu",
+				"US": "com",
+				"IN": "in"
+			}
+			var reqObj = {
+				url: `https://desk.zoho.${domains[DC_TYPE]}/api/v1/tickets`,
+				headers: { orgId },
+				postBody: {},
+				data: {},
+				connectionLinkName: "deskconnection",
+				type: 'GET'
+			}
+			ZOHODESK.request(reqObj).then(console.log).catch(console.log);
+		});
+	});
+};
+</script>
+
+	<script src="./js/extension.js" charset="utf-8"></script>
+
+</body>
+
+</html>
